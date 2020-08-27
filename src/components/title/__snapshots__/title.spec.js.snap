@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Title component render Title with props 1`] = `
+<h1
+  className="h2"
+>
+  title
+</h1>
+`;
+
+exports[`Title component render Title without props 1`] = `""`;
