@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Posts component should render Posts component 1`] = `
+Array [
+  <div
+    class="post"
+  >
+    <p>
+      12
+    </p>
+    <span
+      class="date"
+    >
+      12.12.2020
+    </span>
+    <a
+      href="12"
+    >
+      12
+    </a>
+  </div>,
+  <div
+    class="post"
+  >
+    <p>
+      12
+    </p>
+    <span
+      class="date"
+    >
+      22.12.2020
+    </span>
+    <a
+      href="12"
+    >
+      12
+    </a>
+  </div>,
+]
+`;
+
+exports[`Posts component should shallow Posts component 1`] = `
+Array [
+  <Post
+    date="12-12-2020"
+    key="12-12-2020"
+    text="12"
+    url="12"
+  />,
+  <Post
+    date="12-22-2020"
+    key="12-22-2020"
+    text="12"
+    url="12"
+  />,
+]
+`;
