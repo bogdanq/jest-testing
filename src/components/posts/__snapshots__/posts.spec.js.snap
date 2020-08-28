@@ -1,57 +1,105 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Posts component should render Posts component 1`] = `
-Array [
-  <div
-    class="post"
-  >
-    <p>
-      12
-    </p>
-    <span
-      class="date"
-    >
-      12.12.2020
-    </span>
-    <a
-      href="12"
-    >
-      12
-    </a>
-  </div>,
-  <div
-    class="post"
-  >
-    <p>
-      12
-    </p>
-    <span
-      class="date"
-    >
-      22.12.2020
-    </span>
-    <a
-      href="12"
-    >
-      12
-    </a>
-  </div>,
-]
-`;
-
-exports[`Posts component should shallow Posts component 1`] = `
-Array [
+<div
+  className="wrapper"
+>
+  <Title
+    title="posts"
+  />
+  <Select
+    handleChange={[Function]}
+    onChange={[Function]}
+    options={
+      Array [
+        Object {
+          "label": 10,
+          "value": 10,
+        },
+        Object {
+          "label": 20,
+          "value": 20,
+        },
+        Object {
+          "label": 40,
+          "value": 40,
+        },
+        Object {
+          "label": 50,
+          "value": 50,
+        },
+      ]
+    }
+    value={20}
+  />
+  <Input
+    onChange={[Function]}
+    onKeyPress={[Function]}
+    value=""
+  />
   <Post
     date="12-12-2020"
     key="12-12-2020"
     text="12"
     url="12"
-  />,
+  />
   <Post
     date="12-22-2020"
     key="12-22-2020"
     text="12"
     url="12"
-  />,
-]
+  />
+</div>
+`;
+
+exports[`Posts component should shallow Posts component 1`] = `
+<div
+  className="wrapper"
+>
+  <Title
+    title="posts"
+  />
+  <Select
+    handleChange={[Function]}
+    onChange={[Function]}
+    options={
+      Array [
+        Object {
+          "label": 10,
+          "value": 10,
+        },
+        Object {
+          "label": 20,
+          "value": 20,
+        },
+        Object {
+          "label": 40,
+          "value": 40,
+        },
+        Object {
+          "label": 50,
+          "value": 50,
+        },
+      ]
+    }
+    value={20}
+  />
+  <Input
+    onChange={[Function]}
+    onKeyPress={[Function]}
+    value=""
+  />
+  <Post
+    date="12-12-2020"
+    key="12-12-2020"
+    text="12"
+    url="12"
+  />
+  <Post
+    date="12-22-2020"
+    key="12-22-2020"
+    text="12"
+    url="12"
+  />
+</div>
 `;
