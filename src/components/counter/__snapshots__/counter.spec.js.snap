@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Counter component should render Counter 1`] = `
+<div
+  className="counter"
+>
+  <h1>
+    0
+  </h1>
+  <button
+    className="increment"
+    onClick={[Function]}
+  >
+    +1
+  </button>
+  <button
+    className="reset"
+    onClick={[Function]}
+  >
+    reset to 10
+  </button>
+</div>
+`;
