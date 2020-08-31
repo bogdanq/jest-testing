@@ -4,7 +4,7 @@ import { Title } from "../title";
 import { Input } from "../input";
 import { Select } from "../select";
 
-const POSTS = [
+export const POSTS = [
   { url: "12", text: "12", date: "12-12-2020" },
   { url: "12", text: "12", date: "12-22-2020" },
 ];
@@ -28,11 +28,31 @@ export const HITS = [
   },
 ];
 
+export const BASE_PATH = "https://hn.algolia.com/api/v1";
+export const SEARCH_PATH = "/search";
+export const SEARCH_PARAM = "query=";
+export const PAGE_HITS = "hitsPerPage=";
+export const PAGE_PARAM = "page=";
+
 export class Posts extends React.Component {
   state = {
     searchQuery: "",
+    result: {},
     hitsPerPage: 20,
     page: 0,
+  };
+
+  componentDidMount() {
+    const { searchQuery, hitsPerPage, page } = this.state;
+    this.fetchData(searchQuery, hitsPerPage, page);
+  }
+
+  fetchData = (searchQuery, hitsPerPage, page) => {
+    fetch(
+      `${BASE_PATH}${SEARCH_PATH}?${SEARCH_PARAM}${searchQuery}&${PAGE_HITS}${hitsPerPage}&${PAGE_PARAM}${page}`
+    )
+      .then((res) => res.json())
+      .then((result) => this.setNews(result));
   };
 
   handleInputChange = ({ target: { value } }) => {
@@ -42,18 +62,31 @@ export class Posts extends React.Component {
   };
 
   handleHitsChange = ({ target: { value } }) => {
-    this.setState({
-      hitsPerPage: +value,
-      page: 0,
-    });
+    const { searchQuery } = this.state;
+
+    this.setState(
+      {
+        hitsPerPage: +value,
+        page: 0,
+      },
+      () => {
+        this.fetchData(searchQuery, this.state.hitsPerPage, 0);
+      }
+    );
   };
 
   getSearch = ({ key }) => {
     if (key === "Enter") {
+      const { searchQuery, hitsPerPage } = this.state;
       this.setState({
         page: 0,
       });
+      this.fetchData(searchQuery, hitsPerPage, 0);
     }
+  };
+
+  setNews = (result) => {
+    this.setState({ result });
   };
 
   render() {

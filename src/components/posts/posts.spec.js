@@ -1,6 +1,18 @@
 import React from "react";
-import { Posts } from "./index";
+import {
+  Posts,
+  POSTS,
+  BASE_PATH,
+  SEARCH_PATH,
+  SEARCH_PARAM,
+  PAGE_HITS,
+  PAGE_PARAM,
+} from "./index";
 import { shallow } from "enzyme";
+
+const mockJsonPromise = Promise.resolve({ hits: POSTS, page: 1, nbPages: 10 });
+const mockFetchPromise = Promise.resolve({ json: () => mockJsonPromise });
+global.fetch = jest.fn().mockImplementation(() => mockFetchPromise);
 
 const getPosts = (props) => shallow(<Posts {...props} />);
 
@@ -20,6 +32,12 @@ describe("Posts component", () => {
 
   it("should render Posts component", () => {
     expect(component).toMatchSnapshot();
+  });
+
+  it("should first call fetch", () => {
+    expect(global.fetch).toHaveBeenCalledWith(
+      `${BASE_PATH}${SEARCH_PATH}?${SEARCH_PARAM}${""}&${PAGE_HITS}${20}&${PAGE_PARAM}${0}`
+    );
   });
 
   describe("Posts handlers", () => {
