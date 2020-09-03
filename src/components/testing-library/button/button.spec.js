@@ -17,9 +17,7 @@ describe("Button component", () => {
 
     expect(container.querySelector(".button_animated")).toBeDefined();
 
-    expect(
-      container.querySelector(".button_small").getAttribute("disabled")
-    ).toBe("");
+    expect(container.querySelector(".loading")).toBeDefined();
   });
 
   it("should render button with title", () => {

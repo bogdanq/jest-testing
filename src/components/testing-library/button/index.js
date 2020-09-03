@@ -1,4 +1,5 @@
 import React from "react";
+import "./index.css";
 
 export function Button({
   loading = false,
@@ -16,6 +17,7 @@ export function Button({
       className={className}
       disabled={loading || disabled}
     >
+      {loading && <span className="loading">loading</span>}
       {title}
     </button>
   );
