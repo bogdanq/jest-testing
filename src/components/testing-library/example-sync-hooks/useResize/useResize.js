@@ -13,10 +13,7 @@ export const useResize = () => {
   }, []);
 
   const getVisibility = useCallback(
-    (media) => {
-      console.log("medi33331a", media, currentWidth);
-      return currentWidth < media ? false : true;
-    },
+    (media) => (currentWidth < media ? false : true),
     [currentWidth]
   );
 
