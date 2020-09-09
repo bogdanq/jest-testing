@@ -15,4 +15,10 @@ describe("Hello component", () => {
 
     expect(getByText("Hello, Bogdan!")).toBeDefined();
   });
+
+  test("renders a message", () => {
+    const { container, getByText } = render(<Hello name="Bogdan" />);
+    expect(getByText("Hello, Bogdan!")).toBeInTheDocument();
+    expect(container.firstChild).toMatchSnapshot();
+  });
 });

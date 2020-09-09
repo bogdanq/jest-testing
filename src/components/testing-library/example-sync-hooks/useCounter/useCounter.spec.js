@@ -1,8 +1,8 @@
-import React, { useContext } from "react";
+import React from "react";
 import { renderHook, act } from "@testing-library/react-hooks";
 import { useCounter, CounterStepProvider } from "./useCounter";
 
-describe("test sync hooks", () => {
+describe("test useCounter hooks", () => {
   it("should use counter", () => {
     const { result } = renderHook(() => useCounter());
 
